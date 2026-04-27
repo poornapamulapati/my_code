@@ -56,10 +56,19 @@ export default function CodeGallery() {
 
     setFileContent('Loading...');
     try {
-      const res = await fetch(`/api/file-content?path=${encodeURIComponent(file.path)}`);
+      // Directly fetch the static file from the public/tasks folder
+      const res = await fetch(`/tasks/${file.path}`);
       if (!res.ok) throw new Error('Failed to fetch file');
-      const data = await res.json();
-      setFileContent(data.content);
+      
+      const isImage = file.name.match(/\.(jpeg|jpg|gif|png|webp|svg)$/i);
+      const isVideo = file.name.match(/\.(mp4|webm|ogg)$/i);
+      
+      if (isImage || isVideo) {
+        setFileContent('Binary file preview not supported in code viewer.');
+      } else {
+        const text = await res.text();
+        setFileContent(text);
+      }
     } catch (err) {
       setFileContent('Error loading file content.');
     }
@@ -172,7 +181,7 @@ export default function CodeGallery() {
                 </div>
               ) : (
                 <iframe 
-                  src={`/raw/${selectedFile.path}`} 
+                  src={`/tasks/${selectedFile.path}`} 
                   className="preview-iframe"
                   title="Live Preview"
                 />

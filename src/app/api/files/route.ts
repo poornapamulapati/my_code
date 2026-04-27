@@ -11,15 +11,11 @@ interface FileNode {
   children?: FileNode[];
 }
 
-const IGNORED_DIRS = ['code-gallery', '.git', 'node_modules', '.vercel', '.next'];
-
 function getFiles(dir: string, baseDir: string): FileNode[] {
   const nodes: FileNode[] = [];
   try {
     const files = fs.readdirSync(dir);
     for (const file of files) {
-      if (IGNORED_DIRS.includes(file)) continue;
-
       const fullPath = path.join(dir, file);
       const relativePath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
       const stat = fs.statSync(fullPath);
@@ -51,7 +47,7 @@ function getFiles(dir: string, baseDir: string): FileNode[] {
 }
 
 export async function GET() {
-  const trainingDir = path.resolve(process.cwd(), '..');
-  const fileTree = getFiles(trainingDir, trainingDir);
+  const tasksDir = path.resolve(process.cwd(), 'public', 'tasks');
+  const fileTree = getFiles(tasksDir, tasksDir);
   return NextResponse.json(fileTree);
 }
