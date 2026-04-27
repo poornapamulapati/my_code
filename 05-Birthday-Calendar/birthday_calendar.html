@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 50px auto; text-align: center; font-family: Arial, sans-serif;">
+        <h1>Birthday Calendar</h1>
+        <p style="font-size: 18px; margin-bottom: 20px;">
+            <strong>Today's Date:</strong> <span id="currentDate"></span>
+        </p>
+        
+        <div style="margin-bottom: 20px;">
+            <label for="dateInput">Select a date to check: </label>
+            <input type="date" id="dateInput">
+            <button onclick="checkBirthday()">Check Birthday</button>
+        </div>
+        
+        <div id="message" style="padding: 20px; margin-top: 20px; background-color: #f0f0f0; border-radius: 8px; font-size: 16px; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+            Select a date or refresh to check today
+        </div>
+    </div>
+    
+    
+    <script src="birthday_calendar.js"></script>
+</body>
+</html>
+

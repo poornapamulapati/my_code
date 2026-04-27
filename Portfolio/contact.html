@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Sahith Phiradi</title>
+  <meta name="description" content="Contact Sahith Phiradi – MERN Stack Developer and AI/ML Engineer. Get in touch for opportunities, collaborations, or projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="contact.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top gold-nav" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">SP<span class="dot">.</span></a>
+      <button class="navbar-toggler gold-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link nav-gold" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold active" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <section class="page-hero">
+      <div class="container">
+        <div class="back-btn-wrap mb-4">
+          <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        </div>
+        <div class="section-label reveal-up">GET IN TOUCH</div>
+        <h1 class="section-title reveal-up delay-1">Let's Build Something <span class="gold-text">Together</span></h1>
+        <p class="section-body reveal-up delay-2">
+          Open to MERN Developer and AI Engineer roles, research collaborations, and exciting projects. 
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="contact-section py-5">
+      <div class="container">
+        <div class="row g-5">
+          <!-- CONTACT INFO -->
+          <div class="col-lg-5 reveal-left">
+            <div class="contact-info-card">
+              <h3 class="contact-info-title">Reach Out Directly</h3>
+              <p class="contact-info-sub">Prefer direct contact? Here's where you can find me.</p>
+
+              <div class="contact-link-item">
+                <div class="cli-icon"><i class="bi bi-envelope-fill"></i></div>
+                <div class="cli-body">
+                  <span class="cli-label">Email</span>
+                  <a href="mailto:sahith305@gmail.com" class="cli-value">sahith305@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-link-item">
+                <div class="cli-icon"><i class="bi bi-telephone-fill"></i></div>
+                <div class="cli-body">
+                  <span class="cli-label">Phone</span>
+                  <a href="tel:+919398695188" class="cli-value">+91-9398695188</a>
+                </div>
+              </div>
+
+              <div class="contact-link-item">
+                <div class="cli-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="cli-body">
+                  <span class="cli-label">Location</span>
+                  <span class="cli-value">Vizag, Andhra Pradesh, India</span>
+                </div>
+              </div>
+
+              <div class="contact-link-item">
+                <div class="cli-icon"><i class="bi bi-linkedin"></i></div>
+                <div class="cli-body">
+                  <span class="cli-label">LinkedIn</span>
+                  <a href="https://linkedin.com/in/sahith-phiradi-5b2808290" target="_blank" class="cli-value">sahith-phiradi-5b2808290</a>
+                </div>
+              </div>
+
+              <div class="contact-link-item">
+                <div class="cli-icon"><i class="bi bi-github"></i></div>
+                <div class="cli-body">
+                  <span class="cli-label">GitHub</span>
+                  <a href="https://github.com/sahith215" target="_blank" class="cli-value">github.com/sahith215</a>
+                </div>
+              </div>
+
+              <div class="contact-social-row">
+                <a href="https://github.com/sahith215" target="_blank" class="csocial-btn" id="github-contact-link">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/sahith-phiradi-5b2808290" target="_blank" class="csocial-btn" id="linkedin-contact-link">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="mailto:sahith305@gmail.com" class="csocial-btn" id="email-contact-link">
+                  <i class="bi bi-envelope-fill"></i>
+                </a>
+                <a href="tel:+919398695188" class="csocial-btn" id="phone-contact-link">
+                  <i class="bi bi-telephone-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT FORM -->
+          <div class="col-lg-7 reveal-right">
+            <div class="contact-form-card">
+              <h3 class="form-title">Send a Message</h3>
+              <p class="form-sub">I'll get back to you within 24 hours.</p>
+              <form id="contactForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group-gold">
+                      <label for="inputName" class="gold-label">Full Name</label>
+                      <input type="text" id="inputName" class="gold-input" placeholder="Your name" required />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group-gold">
+                      <label for="inputEmail" class="gold-label">Email Address</label>
+                      <input type="email" id="inputEmail" class="gold-input" placeholder="your@email.com" required />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-gold">
+                      <label for="inputSubject" class="gold-label">Subject</label>
+                      <input type="text" id="inputSubject" class="gold-input" placeholder="What's this about?" />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-gold">
+                      <label for="inputType" class="gold-label">Type of Opportunity</label>
+                      <select id="inputType" class="gold-input gold-select">
+                        <option value="" disabled selected>Select one...</option>
+                        <option value="job">Job Opportunity</option>
+                        <option value="freelance">Freelance Project</option>
+                        <option value="collab">Research Collaboration</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-gold">
+                      <label for="inputMessage" class="gold-label">Message</label>
+                      <textarea id="inputMessage" class="gold-input gold-textarea" rows="5" placeholder="Tell me more..." required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn-gold-primary w-100 justify-content-center" id="submitBtn">
+                      <i class="bi bi-send-fill"></i>
+                      <span id="btnText">Send Message</span>
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <div id="formMsg" class="form-msg" style="display:none;"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- AVAILABILITY BANNER -->
+        <div class="availability-banner reveal-up mt-5">
+          <div class="av-glow"></div>
+          <div class="row align-items-center g-3">
+            <div class="col-auto">
+              <div class="av-indicator"><span class="av-dot"></span></div>
+            </div>
+            <div class="col">
+              <h4 class="av-title">Available for Opportunities</h4>
+              <p class="av-sub">Actively seeking MERN Developer or AI Engineer roles. Open to remote, hybrid, or onsite positions.</p>
+            </div>
+            <div class="col-auto">
+              <a href="mailto:sahith305@gmail.com" class="btn-gold-primary">
+                <i class="bi bi-envelope-fill"></i> Email Me
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p class="footer-name">Sahith Phiradi</p>
+      <p class="footer-copy">© 2025 Sahith Phiradi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>var vs let vs const - Scope Testing</h1>
+    <div id="results"></div>
+
+    <script>
+        const resultsDiv = document.getElementById('results');
+        let testOutput = '';
+
+        function addTest(testName, description) {
+            testOutput += `<h2>${testName}</h2><p>${description}</p>`;
+        }
+
+        function addResult(result) {
+            testOutput += `<p style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-left: 3px solid #666;">${result}</p>`;
+        }
+
+        // TEST 1: Block Scope in If Statement
+        addTest('Test 1: Block Scope (If Statement)', 'var is function-scoped, let and const are block-scoped');
+        
+        if (true) {
+            var x = 'var in if';
+            let y = 'let in if';
+            const z = 'const in if';
+        }
+
+        try {
+            addResult(`var x (after if block): ${x}`); // Should print 'var in if'
+        } catch (e) {
+            addResult(`var x error: ${e.message}`);
+        }
+
+        try {
+            addResult(`let y (after if block): ${y}`); // Should throw error
+        } catch (e) {
+            addResult(`✓ let y throws error: ${e.message}`);
+        }
+
+        try {
+            addResult(`const z (after if block): ${z}`); // Should throw error
+        } catch (e) {
+            addResult(`✓ const z throws error: ${e.message}`);
+        }
+
+        // TEST 2: Block Scope in For Loop
+        addTest('Test 2: Block Scope (For Loop)', 'var leaks out of loop, let and const are confined to loop');
+        
+        for (var varInLoop = 0; varInLoop < 1; varInLoop++) {}
+        for (let letInLoop = 0; letInLoop < 1; letInLoop++) {}
+        for (const constArray = [0]; constArray[0] < 1; constArray[0]++) {}
+
+        addResult(`var varInLoop (after loop): ${varInLoop}`); // Should print 0
+        
+        try {
+            addResult(`let letInLoop (after loop): ${letInLoop}`); // Should throw error
+        } catch (e) {
+            addResult(`✓ let letInLoop throws error: ${e.message}`);
+        }
+
+        try {
+            addResult(`const constArray (after loop): ${constArray}`); // Should throw error
+        } catch (e) {
+            addResult(`✓ const constArray throws error: ${e.message}`);
+        }
+
+        // TEST 3: Redeclaration
+        addTest('Test 3: Redeclaration', 'var allows redeclaration, let and const do not');
+
+        var redeclareVar = 'first var';
+        var redeclareVar = 'second var'; // Allowed
+        addResult(`var redeclareVar (redeclared): ${redeclareVar} ✓ Redeclaration allowed`);
+
+        let redeclareLet = 'first let';
+        try {
+            eval('let redeclareLet = "second let"'); // Using eval to redeclare in same scope
+            addResult('let redeclareLet: Redeclaration allowed');
+        } catch (e) {
+            addResult(`✓ let redeclareLet throws error: ${e.message} (Redeclaration not allowed)`);
+        }
+
+        const redeclareConst = 'first const';
+        try {
+            eval('const redeclareConst = "second const"');
+            addResult('const redeclareConst: Redeclaration allowed');
+        } catch (e) {
+            addResult(`✓ const redeclareConst throws error: ${e.message} (Redeclaration not allowed)`);
+        }
+
+        // TEST 4: Reassignment vs const immutability
+        addTest('Test 4: Reassignment (var and let allow, const does not)', 'var and let can be reassigned, const cannot');
+
+        var reassignVar = 'original var';
+        reassignVar = 'modified var';
+        addResult(`var reassignVar: ${reassignVar} ✓ Reassignment allowed`);
+
+        let reassignLet = 'original let';
+        reassignLet = 'modified let';
+        addResult(`let reassignLet: ${reassignLet} ✓ Reassignment allowed`);
+
+        const reassignConst = 'original const';
+        try {
+            reassignConst = 'modified const'; // This will throw error
+            addResult('const reassignConst: Reassignment allowed');
+        } catch (e) {
+            addResult(`✓ const reassignConst throws error: ${e.message} (Reassignment not allowed)`);
+        }
+
+        // TEST 5: Hoisting and Temporal Dead Zone
+        addTest('Test 5: Hoisting and Temporal Dead Zone', 'var hoists with undefined, let/const hoist but not accessible (TDZ)');
+
+        try {
+            addResult(`Accessing hoistedVar before declaration: ${hoistedVar}`); // var hoists as undefined
+        } catch (e) {
+            addResult(`Error: ${e.message}`);
+        }
+
+        var hoistedVar = 'var value';
+
+        try {
+            addResult(`Accessing hoistedLet before declaration: ${hoistedLet}`); // TDZ - not accessible
+        } catch (e) {
+            addResult(`✓ hoistedLet in TDZ throws error: ${e.message}`);
+        }
+
+        let hoistedLet = 'let value';
+
+        // TEST 6: Global Object Property
+        addTest('Test 6: Global Object Property', 'var adds to global/window object, let/const do not');
+
+        var globalVar = 'I am var';
+        let globalLet = 'I am let';
+        const globalConst = 'I am const';
+
+        addResult(`window.globalVar exists: ${window.globalVar !== undefined ? '✓ Yes' : 'No'} (value: ${window.globalVar})`);
+        addResult(`window.globalLet exists: ${window.globalLet !== undefined ? 'Yes' : '✓ No'}`);
+        addResult(`window.globalConst exists: ${window.globalConst !== undefined ? 'Yes' : '✓ No'}`);
+
+        // TEST 7: Function Scope
+        addTest('Test 7: Function Scope', 'var is function-scoped, let/const are block-scoped within functions');
+
+        function testFunctionScope() {
+            if (true) {
+                var funcVar = 'var in function';
+                let funcLet = 'let in function';
+                const funcConst = 'const in function';
+            }
+            try {
+                addResult(`funcVar (in function, outside if): ${funcVar}`); // Accessible
+            } catch (e) {
+                addResult(`funcVar error: ${e.message}`);
+            }
+            try {
+                addResult(`funcLet (in function, outside if): ${funcLet}`); // Not accessible
+            } catch (e) {
+                addResult(`✓ funcLet throws error: ${e.message}`);
+            }
+            try {
+                addResult(`funcConst (in function, outside if): ${funcConst}`); // Not accessible
+            } catch (e) {
+                addResult(`✓ funcConst throws error: ${e.message}`);
+            }
+        }
+        
+        testFunctionScope();
+
+        // Display all results
+        resultsDiv.innerHTML = testOutput;
+    </script>
+</body>
+</html>

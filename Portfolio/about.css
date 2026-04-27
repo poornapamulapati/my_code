@@ -1,0 +1,239 @@
+/* =====================================================
+   ABOUT.CSS
+   ===================================================== */
+
+.about-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* AVATAR CARD */
+.about-avatar-card {
+  position: relative;
+  background: linear-gradient(145deg, #111111 0%, #1a1200 100%);
+  border: 1px solid rgba(255,215,0,0.15);
+  border-radius: 28px;
+  padding: 48px 32px 32px;
+  text-align: center;
+  overflow: hidden;
+}
+.avatar-large {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1200, #2d2000);
+  border: 2px solid rgba(255,215,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0 auto 28px;
+  background-image: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-color: #1a1200;
+  position: relative;
+  z-index: 1;
+}
+.avatar-glow-card {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--white-dim);
+  font-size: 0.9rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,215,0,0.06);
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+.info-item:last-child { border-bottom: none; }
+.info-item i { color: var(--gold-light); font-size: 0.85rem; }
+
+/* EDUCATION */
+.edu-card {
+  display: flex;
+  gap: 24px;
+  background: linear-gradient(145deg, #111 0%, #1a1200 100%);
+  border: 1px solid rgba(255,215,0,0.15);
+  border-radius: 24px;
+  padding: 36px;
+  transition: all 0.4s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad-gold);
+}
+.edu-card:hover {
+  border-color: rgba(255,215,0,0.3);
+  box-shadow: 0 20px 60px rgba(255,215,0,0.07);
+}
+.edu-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  flex-shrink: 0;
+}
+.edu-badge {
+  display: inline-block;
+  background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.2);
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+}
+.edu-degree {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.edu-school {
+  color: var(--white-muted);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+.edu-details { display: flex; flex-wrap: wrap; gap: 10px; }
+.edu-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white-dim);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+}
+.edu-chip.gold {
+  background: rgba(255,215,0,0.08);
+  border-color: rgba(255,215,0,0.2);
+  color: var(--gold-light);
+}
+.edu-chip i { font-size: 0.72rem; }
+
+/* SKILL CATEGORIES */
+.skill-category-card {
+  background: linear-gradient(145deg, #111 0%, #1a1200 100%);
+  border: 1px solid rgba(255,215,0,0.08);
+  border-radius: 20px;
+  padding: 28px 24px;
+  height: 100%;
+  transition: all 0.4s var(--transition);
+}
+.skill-category-card:hover {
+  border-color: rgba(255,215,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(255,215,0,0.06);
+}
+.skill-cat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--white-muted);
+  margin-bottom: 16px;
+}
+.skill-cat-icon.gold {
+  background: rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.2);
+  color: var(--gold-light);
+}
+.skill-category-card h4 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.st {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--white-dim);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  transition: all 0.3s var(--transition);
+}
+.st:hover { border-color: rgba(255,215,0,0.3); color: var(--gold-light); }
+.st.gold {
+  background: rgba(255,215,0,0.08);
+  border-color: rgba(255,215,0,0.18);
+  color: var(--gold-light);
+}
+.devtools-card { display: flex; flex-direction: row; align-items: center; gap: 24px; flex-wrap: wrap; }
+.devtools-card .skill-tags { flex: 1; }
+
+/* CERTIFICATIONS */
+.cred-card {
+  background: linear-gradient(145deg, #111 0%, #1a1200 100%);
+  border: 1px solid rgba(255,215,0,0.1);
+  border-radius: 22px;
+  padding: 32px 28px;
+  height: 100%;
+}
+.cred-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cred-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cred-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--white-dim);
+  font-size: 0.92rem;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,215,0,0.05);
+  line-height: 1.5;
+}
+.cred-list li:last-child { border-bottom: none; }
+.cred-list li i { color: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }

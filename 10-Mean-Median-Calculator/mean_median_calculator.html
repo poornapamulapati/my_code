@@ -1,0 +1,162 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ip" placeholder="Type something...">
+    <button onclick="testFunction()">Test</button>
+    <p id="output"></p>
+    <script>
+        //When button is click the input values should be displayed using the find() to check age and display the values above 18, the input will be given like 12,13, 59,40,54,56,etc in the input box. it should display all the ages above 18 on the screen.
+        function testFunction() {
+            const input = document.getElementById('ip').value;
+            const ages = input.split(',').map(age => parseInt(age.trim()));
+            const above18 = ages.filter(age => age > 18);
+            document.getElementById('output').innerText = 'Ages above 18: ' + above18.join(', ');
+        }
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mean and Median Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+        
+        .info {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .results {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            min-height: 100px;
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .result-item {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .result-label {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        .array-display {
+            color: #667eea;
+            font-weight: bold;
+            margin: 15px 0;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mean & Median Calculator</h1>
+        <div class="input-group">
+            <div class="info">Enter 5 values (Press Enter after each value)</div>
+            <input type="number" id="numberInput" placeholder="Enter a number..." autofocus>
+        </div>
+        
+        <div class="results" id="results">
+            <div class="array-display">Array: <span id="arrayDisplay"></span></div>
+            <div class="result-item"><span class="result-label">Mean:</span> <span id="meanValue"></span></div>
+            <div class="result-item"><span class="result-label">Median:</span> <span id="medianValue"></span></div>
+        </div>
+    </div>
+
+    <script>
+        let numbers = [];
+        const input = document.getElementById('numberInput');
+        const resultsDiv = document.getElementById('results');
+        input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const value = parseFloat(input.value.trim());
+                if (isNaN(value)) {
+                    alert('Please enter a valid number');
+                    return;
+                }
+                numbers.push(value);
+                input.value = '';
+                if (numbers.length === 5) {
+                    calculateAndDisplay();
+                    input.disabled = true;
+                    input.placeholder = 'All values entered!';
+                } else {
+                    input.placeholder = `Enter value ${numbers.length + 1} of 5...`;
+                }
+            }
+        });
+        function calculateAndDisplay() {
+            const mean = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+            const sorted = [...numbers].sort((a, b) => a - b);
+            const median = sorted[Math.floor(sorted.length / 2)];
+            document.getElementById('arrayDisplay').textContent = '[' + numbers.join(', ') + ']';
+            document.getElementById('meanValue').textContent = mean.toFixed(2);
+            document.getElementById('medianValue').textContent = median;
+            resultsDiv.classList.add('show');
+        }
+    </script>
+</body>
+</html>

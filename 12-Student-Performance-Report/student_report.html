@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .high-performing {
+            background-color: #d4edda;
+        }
+        .not-performing {
+            background-color: #f8d7da;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Student Performance Report</h2>
+    <table id="performanceTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Average Score</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+    
+    <h2>High Performing Students (Average >= 90)</h2>
+    <table id="highPerformingTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody id="highPerformingBody">
+        </tbody>
+    </table>
+
+    </center>    
+    <script>
+        const students = [
+            {name: "Alice", scores: [90,85,92]},
+            {name: "Bob", scores: [75,85,80]},
+            {name: "Charlie", scores: [90,95,85]},
+            {name: "jack", scores: [100,100,100]},
+        ]
+
+        const studentAverages = students.map(student => {
+            const sum = student .scores.reduce((acc,score) => acc + score);
+            return {name: student.name, average: sum / student.scores.length};
+        })
+        const highPerformingStudents = studentAverages.filter(student => student.average >= 90);
+        const tableBody = document.getElementById("tableBody");
+        studentAverages.forEach(student => {
+            const status = student.average >= 90 ? "High Performing" : "Not High Performing";
+            const rowClass = student.average >= 90 ? "high-performing" : "not-performing";
+            const row = document.createElement("tr");
+            row.className = rowClass;
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.average.toFixed(2)}</td>
+                <td>${status}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+        const highPerformingBody = document.getElementById("highPerformingBody");
+        highPerformingStudents.forEach(student => {
+            const row = document.createElement("tr");
+            row.className = "high-performing";
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.average.toFixed(2)}</td>
+            `;
+            highPerformingBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

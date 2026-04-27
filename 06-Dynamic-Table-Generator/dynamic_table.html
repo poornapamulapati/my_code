@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .table {
+            margin-bottom: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .table thead th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            padding: 15px;
+            text-align: left;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .table tbody td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table-responsive {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <h1>Flowers & Colors</h1>
+        <div class="table-responsive">
+            <table class="table table-hover" id="dataTable">
+                <thead>
+                    <tr id="headerRow"></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const flowers = [
+            { flower: "Rose", color: "Red" },
+            { flower: "Jasmine", color: "White" },
+            { flower: "Tulips", color: "Pink" },
+            { flower: "Sunflower", color: "Yellow" },
+            { flower: "Lavender", color: "Purple" },
+            { flower: "Daisy", color: "White" },
+            { flower: "Hibiscus", color: "Red" },
+            { flower: "Orchid", color: "Magenta" }
+        ];
+
+        function generateTable(data) {
+            if (data.length === 0) {
+                console.log("Array is empty");
+                return;
+            }
+            const keys = Object.keys(data[0]);
+            const headerRow = document.getElementById('headerRow');
+            keys.forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                headerRow.appendChild(th);
+            });
+            const tableBody = document.getElementById('tableBody');
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+                keys.forEach(key => {
+                    const td = document.createElement('td');
+                    td.textContent = item[key];
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+        generateTable(flowers);
+    </script>
+</body>
+</html>

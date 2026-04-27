@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 20px;
+        }
+
+        #myTitle{
+            color: blueviolet;
+        }
+        .item{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 id="myTitle">Original Title</h1>
+        <p class="item">Item 1</p>
+        <p class="item">Item 2</p>
+        <img id="imagee" style="height: 300px;border-radius: 30px;" src="MS_Static.png" alt="">
+        <br><br>
+        <button id="changeBtn">Change Title and Style</button>   
+        <button id="addBtn">Add New Item</button>   
+        <button id="removeBtn">Remove Image</button>
+        <button onclick="window.print()">Print the Page</button>
+    
+    </center>
+    <script>
+        //Changing the title, text and the style
+        document.getElementById("changeBtn").addEventListener("click", function(){
+            let title = document.getElementById("myTitle");
+            title.textContent = "BOOM! The title is Updated now";
+            title.style.color = "black";
+            title.style.fontSize = "50px";
+        });
+
+        // Adding a new paragraph dynamically
+        document.getElementById("addBtn").addEventListener("click",function(){
+            let newPara = document.createElement("p");
+            newPara.textContent = "Item added";
+            newPara.className = "item";
+            document.body.appendChild(newPara);
+        });
+
+        //Removing the image
+        document.getElementById("removeBtn").addEventListener("click",function(){
+            let remove = document.getElementById("imagee");
+            if(remove === null){
+                alert("There's no image to remove you dry fruit!!");
+            }
+            remove.remove();
+        })
+    </script>
+</body>
+</html>

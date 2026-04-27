@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahith Phiradi | MERN Stack & AI/ML Engineer</title>
+  <meta name="description"
+    content="Portfolio of Sahith Phiradi – MERN Stack Developer and AI/ML Engineer building full-stack and ML-powered systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top gold-nav" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">SP<span class="dot">.</span></a>
+      <button class="navbar-toggler gold-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link nav-gold active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link nav-gold" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section" id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-7">
+          <div class="hero-badge reveal-up">
+            <i class="bi bi-stars"></i> Final Year B.Tech CSE · LIET · Class of 2027
+          </div>
+          <h1 class="hero-name reveal-up delay-1">
+            Sahith<br /><span class="gold-text">Phiradi</span>
+          </h1>
+          <div class="hero-roles reveal-up delay-2">
+            <span class="role-pill">MERN Stack Developer</span>
+            <span class="role-sep">·</span>
+            <span class="role-pill">AI & ML Engineer</span>
+          </div>
+          <p class="hero-tagline reveal-up delay-3">
+            Shipping <span class="gold-text">production-grade</span> full-stack &amp; ML-powered systems.
+            Global Rank 82 at IEEE EXTREME 18.0. 1st Place at ACM Codex.
+          </p>
+          <div class="hero-cta reveal-up delay-4">
+            <a href="projects.html" class="btn-gold-primary">View Projects <i class="bi bi-arrow-right"></i></a>
+            <a href="contact.html" class="btn-gold-ghost">Hire Me <i class="bi bi-send"></i></a>
+          </div>
+          <div class="hero-socials reveal-up delay-5">
+            <a href="https://github.com/sahith215" target="_blank" class="social-icon" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/sahith-phiradi-5b2808290" target="_blank" class="social-icon"
+              title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:sahith305@gmail.com" class="social-icon" title="Email">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="tel:+919398695188" class="social-icon" title="Phone">
+              <i class="bi bi-telephone-fill"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
+          <div class="hero-avatar-ring reveal-right delay-2">
+            <div class="avatar-inner">
+              <div><img style="height: 350px; width: 350px; object-fit: cover; border-radius: 50%;" src="PFPM.jpeg" alt="Sahith Phiradi"> </div>
+              <div class="avatar-glow"></div>
+            </div>
+            <div class="orbit orbit-1"><span class="orbit-dot"></span></div>
+            <div class="orbit orbit-2"><span class="orbit-dot gold-dot"></span></div>
+            <div class="orbit orbit-3"><span class="orbit-dot"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse-icon">
+        <div class="mouse-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats-strip" id="stats">
+    <div class="container">
+      <div class="row g-0 stats-row">
+        <div class="col-6 col-md-3 stat-item reveal-up">
+          <span class="stat-num" data-target="82">0</span><span class="stat-suffix">#</span>
+          <p class="stat-label">IEEE EXTREME Global Rank</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item reveal-up delay-1">
+          <span class="stat-num" data-target="8">0</span><span class="stat-suffix">.32</span>
+          <p class="stat-label">CGPA / 10.0</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item reveal-up delay-2">
+          <span class="stat-num" data-target="3">0</span><span class="stat-suffix">+</span>
+          <p class="stat-label">Production Projects</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item reveal-up delay-3">
+          <span class="stat-num" data-target="7">0</span><span class="stat-suffix">+</span>
+          <p class="stat-label">Certifications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK INTRO -->
+  <section class="quick-intro py-5" id="intro">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal-left">
+          <div class="section-label">WHO AM I</div>
+          <h2 class="section-title">Building the Future,<br /><span class="gold-text">One Stack at a Time</span></h2>
+          <p class="section-body">
+            I'm a final-year BTech CSE student at LIET specializing in MERN Stack and AI/ML engineering.
+            I shipped production-grade full-stack and ML-powered systems through a research internship at IIT Tirupati
+            and independent projects.
+          </p>
+          <a href="about.html" class="btn-gold-outline mt-3">More About Me <i class="bi bi-person-lines-fill"></i></a>
+        </div>
+        <div class="col-lg-6 reveal-right">
+          <div class="skills-showcase">
+            <div class="skill-chip-row">
+              <span class="skill-chip">React.js</span>
+              <span class="skill-chip gold">Node.js</span>
+              <span class="skill-chip">Express.js</span>
+              <span class="skill-chip gold">MongoDB</span>
+            </div>
+            <div class="skill-chip-row">
+              <span class="skill-chip gold">TensorFlow</span>
+              <span class="skill-chip">Solidity</span>
+              <span class="skill-chip gold">Python</span>
+              <span class="skill-chip">Groq API</span>
+            </div>
+            <div class="skill-chip-row">
+              <span class="skill-chip">ESP32</span>
+              <span class="skill-chip gold">Gemini AI</span>
+              <span class="skill-chip">Flask</span>
+              <span class="skill-chip gold">Polygon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS PREVIEW -->
+  <section class="featured-projects py-5" id="featured">
+    <div class="container">
+      <div class="text-center mb-5 reveal-up">
+        <div class="section-label">FEATURED WORK</div>
+        <h2 class="section-title">Projects That <span class="gold-text">Ship</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal-up delay-1">
+          <div class="project-card-home">
+            <div class="project-icon"><i class="bi bi-cloud-fog2-fill"></i></div>
+            <h3>AtmosTrack</h3>
+            <p>IoT Air Quality & Carbon Credit Platform — ESP32, MERN Stack, Solidity, Polygon, Arduino</p>
+            <a href="projects.html" class="card-link">View Project <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 reveal-up delay-2">
+          <div class="project-card-home featured">
+            <div class="project-icon"><i class="bi bi-robot"></i></div>
+            <h3>HireIQ</h3>
+            <p>Agentic RAG Hiring Platform — n8n, Groq, LLaMA 3.3, Gemini Embeddings, Supabase, React</p>
+            <a href="projects.html" class="card-link">View Project <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 reveal-up delay-3">
+          <div class="project-card-home">
+            <div class="project-icon"><i class="bi bi-eye-fill"></i></div>
+            <h3>OptiDetect</h3>
+            <p>Diabetic Retinopathy Screening Tool — Python, Flask, TensorFlow, Node.js</p>
+            <a href="projects.html" class="card-link">View Project <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal-up">
+        <a href="projects.html" class="btn-gold-primary">See All Projects <i class="bi bi-grid-3x3-gap"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p class="footer-name">Sahith Phiradi</p>
+      <p class="footer-copy">© 2025 Sahith Phiradi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script src="home.js"></script>
+</body>
+
+</html>

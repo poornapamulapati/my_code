@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //This program is to display the differnce between the older and the younger person and also print the oldest and the youngest age value 
+        const input = [
+            {name: "Sahith", age:21},        
+            {name: "Rohith", age:12},        
+            {name: "Aditya", age:56},        
+            {name: "Surendra", age:65},        
+            {name: "Poorna", age:67}, 
+        ];
+        
+        
+        const maxAge = Math.max(...input.map(person => person.age));
+        const minAge = Math.min(...input.map(person => person.age));
+        
+        const oldestPerson = input.find(person => person.age === maxAge);
+        const youngestPerson = input.find(person => person.age === minAge);
+        
+        const ageDifference = maxAge - minAge;
+        
+        console.log("Oldest Person: " + oldestPerson.name + ", Age: " + maxAge);
+        console.log("Youngest Person: " + youngestPerson.name + ", Age: " + minAge);
+        console.log("Age Difference: " + ageDifference);
+
+    </script>
+</body>
+</html>

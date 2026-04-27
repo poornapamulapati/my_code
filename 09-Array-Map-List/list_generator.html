@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Here's the List of super cars:</h1>
+    </center>
+    <script>
+        const vehicle = ["Lamborghini", "Devel Sixteen", "Bugatti Veyron", "Ferrari LaFerrari", "Koenigsegg Agera", "Hennessey Venom"];
+        
+        const ul = document.createElement("ul");
+        ul.style.fontSize = "18px";
+        ul.style.margin = "20px";
+        
+        ul.innerHTML = vehicle.map(car => `<li>${car}</li>`).join('');
+        
+        document.body.appendChild(ul);
+    </script>
+</body>
+</html>
